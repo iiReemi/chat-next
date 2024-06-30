@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      padding: {
+        safe: "env(safe-area-inset-bottom)",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },

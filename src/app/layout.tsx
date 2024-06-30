@@ -1,7 +1,9 @@
+import { Toaster } from "@/components/ui/sonner";
+import { ImagePreviewProvider } from "@/contexts/imagePreviewContext";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,13 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        {children}
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body className={cn("font-sans antialiased", fontSans.variable)}>
+        <ImagePreviewProvider>
+          <Toaster />
+          {children}
+        </ImagePreviewProvider>
       </body>
     </html>
   );
