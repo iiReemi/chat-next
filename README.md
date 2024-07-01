@@ -27,22 +27,22 @@ Certifique-se de ter os seguintes itens instalados no seu sistema:
 
 1. **Clone o repositório:**
 
-\`\`\`bash
+```bash
 git clone https://github.com/seuusuario/seu-repo.git
 cd seu-repo
-\`\`\`
+```
 
 2. **Instale as dependências:**
 
-\`\`\`bash
+```bash
 npm install
 # ou
 yarn install
-\`\`\`
+```
 
 3. **Crie um arquivo `.env.local` no diretório raiz e adicione as seguintes variáveis de ambiente:**
 
-\`\`\`env
+```env
 NEXT_PUBLIC_FIREBASE_API_KEY=sua_chave_api_do_firebase
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu_dominio_auth_do_firebase
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=seu_id_do_projeto_firebase
@@ -50,7 +50,7 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu_bucket_de_storage_firebase
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=seu_id_de_envio_de_mensagens_firebase
 NEXT_PUBLIC_FIREBASE_APP_ID=sua_id_do_app_firebase
 NEXT_PUBLIC_SOCKET_IO_URL=sua_url_do_servidor_socket_io
-\`\`\`
+```
 
 ### Configuração do Firebase
 
@@ -63,21 +63,21 @@ NEXT_PUBLIC_SOCKET_IO_URL=sua_url_do_servidor_socket_io
 
 1. **Desenvolvimento:**
 
-\`\`\`bash
+```bash
 npm run dev
 # ou
 yarn dev
-\`\`\`
+```
 
 2. **Produção:**
 
-\`\`\`bash
+```bash
 npm run build
 npm run start
 # ou
 yarn build
 yarn start
-\`\`\`
+```
 
 ### Estrutura do Projeto
 
