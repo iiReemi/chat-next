@@ -23,7 +23,7 @@ export default function Upload({ chatId, sendImage }: CameraInterface) {
     if (files && files[0]) {
       const file = files[0];
       try {
-        const resizedBlobImage = await resizeImageToBlob(file, 800, 600, 1);
+        const resizedBlobImage = await resizeImageToBlob(file, 800, 600, 0.9);
         const downloadURL = await uploadImage(resizedBlobImage, uuid(), chatId);
 
         sendImage(downloadURL);
