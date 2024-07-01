@@ -81,18 +81,18 @@ yarn start
 
 ### Estrutura do Projeto
 
-- \`components/\` - Componentes React usados na aplicação
-- \`pages/\` - Páginas Next.js
-- \`styles/\` - Estilos CSS
-- \`utils/\` - Funções utilitárias
-- \`public/\` - Recursos públicos
+- `components` - Componentes React usados na aplicação
+- `pages` - Páginas Next.js
+- `styles` - Estilos CSS
+- `utils` - Funções utilitárias
+- `public` - Recursos públicos
 
 ### Scripts
 
-- \`dev\` - Executa a aplicação em modo de desenvolvimento
-- \`build\` - Compila a aplicação para produção
-- \`start\` - Inicia a aplicação em modo de produção
-- \`lint\` - Executa o ESLint
+- `dev` - Executa a aplicação em modo de desenvolvimento
+- `build` - Compila a aplicação para produção
+- `start` - Inicia a aplicação em modo de produção
+- `lint` - Executa o ESLint
 
 ### Contribuindo
 
