@@ -60,16 +60,24 @@ export default function Page({ params }: ParamsType) {
       }
     }
 
+    function onReconnectAttempt(attempt: number) {
+      toast(`${attempt}: Tentando reestabelecer conexão...`, {
+        position: "top-center",
+      });
+    }
+
     socketInstance.emit("join", params.chatId);
     socketInstance.on("message", onMessage);
     socketInstance.on("user-action", onAction);
     socketInstance.on("new-participant", onNewParticipant);
+    socketInstance.on("reconnect_attempt", onReconnectAttempt);
 
     return () => {
       socketInstance.emit("leave-rooms");
       socketInstance.off("message", onMessage);
       socketInstance.off("user-action", onAction);
       socketInstance.off("new-participant", onNewParticipant);
+      socketInstance.on("reconnect_attempt", onReconnectAttempt);
     };
   }, [name, params.chatId, socketInstance]);
 
