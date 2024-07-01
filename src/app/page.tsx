@@ -43,7 +43,7 @@ export default function Page() {
       >
         <Label className="font-bold">Informe a sala:</Label>
         <Input
-          className="border-zinc-300"
+          className="border-zinc-300 text-lg"
           value={room}
           onChange={(e) => {
             setRoom(e.target.value);
@@ -51,7 +51,7 @@ export default function Page() {
         />
         <Label className="font-bold">Como podemos te chamar?</Label>
         <Input
-          className="border-zinc-300"
+          className="border-zinc-300 text-lg"
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);

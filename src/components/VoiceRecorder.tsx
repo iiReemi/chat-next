@@ -19,18 +19,8 @@ export default function VoiceRecorder({
 
   async function startRecording() {
     try {
-      const permissionStatus = await navigator.permissions.query({
-        name: "microphone" as PermissionName,
-      });
-
-      if (permissionStatus.state !== "granted") {
-        alert(
-          "Permissão para acessar o microfone não concedida. Por favor, permita o acesso ao microfone nas configurações do navegador."
-        );
-        return;
-      }
-
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
       mediaStream.current = stream;
 
       const recorder = new MediaRecorder(stream);
