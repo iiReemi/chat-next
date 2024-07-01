@@ -77,7 +77,13 @@ export default function Page({ params }: ParamsType) {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages, userAction]);
+  }, [messages]);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView();
+    }
+  }, [userAction]);
 
   return (
     <div className="flex flex-col w-full h-screen bg-stone-100">
