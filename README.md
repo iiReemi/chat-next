@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Aplicação de Chat com Next.js
 
-First, run the development server:
+Esta é uma aplicação de chat em tempo real construída com Next.js, NestJS, Firebase e Socket.io. A aplicação permite que os usuários conversem em tempo real com diversos recursos como armazenamento de mensagens, uploads de arquivos e notificações sonoras.
 
-```bash
+## Funcionalidades
+
+- Mensagens em tempo real
+- Upload de arquivos (áudio e imagens)
+- Upload de imagens a partir da câmera ou do álbum
+- Notificação sonora ao receber mensagens
+- Indicação de quando o usuário está digitando ou gravando áudio
+- Design responsivo
+
+## Começando
+
+### Pré-requisitos
+
+Certifique-se de ter os seguintes itens instalados no seu sistema:
+
+- Node.js (v12 ou posterior)
+- npm ou yarn
+- Conta no Firebase
+- Servidor Socket.io
+
+### Instalação
+
+1. **Clone o repositório:**
+
+\`\`\`bash
+git clone https://github.com/seuusuario/seu-repo.git
+cd seu-repo
+\`\`\`
+
+2. **Instale as dependências:**
+
+\`\`\`bash
+npm install
+# ou
+yarn install
+\`\`\`
+
+3. **Crie um arquivo `.env.local` no diretório raiz e adicione as seguintes variáveis de ambiente:**
+
+\`\`\`env
+NEXT_PUBLIC_FIREBASE_API_KEY=sua_chave_api_do_firebase
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu_dominio_auth_do_firebase
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=seu_id_do_projeto_firebase
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu_bucket_de_storage_firebase
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=seu_id_de_envio_de_mensagens_firebase
+NEXT_PUBLIC_FIREBASE_APP_ID=sua_id_do_app_firebase
+NEXT_PUBLIC_SOCKET_IO_URL=sua_url_do_servidor_socket_io
+\`\`\`
+
+### Configuração do Firebase
+
+1. Vá para o [Console do Firebase](https://console.firebase.google.com/).
+2. Crie um novo projeto ou use um projeto existente.
+3. Navegue até Configurações do Projeto e adicione um novo app web.
+4. Copie a configuração do Firebase e cole os valores no arquivo `.env.local` conforme mostrado acima.
+
+### Executando a Aplicação
+
+1. **Desenvolvimento:**
+
+\`\`\`bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Produção:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+\`\`\`bash
+npm run build
+npm run start
+# ou
+yarn build
+yarn start
+\`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Estrutura do Projeto
 
-## Learn More
+- \`components/\` - Componentes React usados na aplicação
+- \`pages/\` - Páginas Next.js
+- \`styles/\` - Estilos CSS
+- \`utils/\` - Funções utilitárias
+- \`public/\` - Recursos públicos
 
-To learn more about Next.js, take a look at the following resources:
+### Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- \`dev\` - Executa a aplicação em modo de desenvolvimento
+- \`build\` - Compila a aplicação para produção
+- \`start\` - Inicia a aplicação em modo de produção
+- \`lint\` - Executa o ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Contribuindo
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Faça um fork do repositório.
+2. Crie uma nova branch: \`git checkout -b minha-branch-de-recurso\`
+3. Faça suas alterações e comite-as: \`git commit -m 'Adicionei um novo recurso'\`
+4. Envie para a branch: \`git push origin minha-branch-de-recurso\`
+5. Envie um pull request.
