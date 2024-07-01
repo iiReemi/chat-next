@@ -34,7 +34,7 @@ export default function VoiceRecorder({
 
       recorder.onstop = async () => {
         if (isSaving.current && chunks.current.length > 0) {
-          const blob = new Blob(chunks.current, { type: "audio/webm" });
+          const blob = new Blob(chunks.current, { type: "audio/wav" });
           try {
             const downloadURL = await uploadAudio(blob, uuid(), chatId);
             sendAudio(downloadURL);
