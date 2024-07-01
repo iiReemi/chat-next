@@ -13,9 +13,18 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch((error) => {
+              console.error("Playback failed:", error);
+              setIsPlaying(false);
+            });
+        }
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -55,7 +64,7 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
       </Button>
       <button
         onClick={changeSpeed}
-        className={`rounded-full w-6 h-6 flex items-center justify-centeroutline-none`}
+        className={`rounded-full w-6 h-6 flex items-center justify-center outline-none`}
       >
         <span
           className={` ${isOwner ? "text-white" : "text-stone-800"} text-sm`}
@@ -67,6 +76,9 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
         ref={audioRef}
         src={audioUrl}
         onEnded={() => setIsPlaying(false)}
+        preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       />
     </div>
   );
