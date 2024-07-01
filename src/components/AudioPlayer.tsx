@@ -60,6 +60,7 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
         URL.revokeObjectURL(blobUrl);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioUrl, ffmpegLoaded]);
 
   const togglePlayPause = () => {
