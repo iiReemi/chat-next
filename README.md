@@ -11,6 +11,7 @@ Esta é uma aplicação de chat em tempo real construída com Next.js, NestJS, F
 - Notificação sonora ao receber mensagens
 - Indicação de quando o usuário está digitando ou gravando áudio
 - Design responsivo
+- Shadcn UI para acelerar o desenvolvimento
 
 ## Começando
 
