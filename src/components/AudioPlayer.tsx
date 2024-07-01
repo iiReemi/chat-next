@@ -2,6 +2,7 @@ import { AudioPlayerProps } from "@/interfaces";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import LoadingAnimation from "./LoadingAnimation/LoadingAnimation";
 import { Button } from "./ui/button";
 
 export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
@@ -11,6 +12,7 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [ffmpegLoaded, setFfmpegLoaded] = useState(false);
   const ffmpeg = useRef<FFmpeg>(new FFmpeg());
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadFFmpeg = async () => {
@@ -47,6 +49,7 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
         // Create a URL for the Blob
         const url = URL.createObjectURL(mp3Blob);
         setBlobUrl(url);
+        setLoading(false);
       } catch (error) {
         console.log("Error fetching or converting audio:", error);
       }
@@ -118,7 +121,15 @@ export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
           isOwner ? "text-white" : "text-stone-800"
         }`}
       >
-        <span>{isPlaying ? <Pause size={16} /> : <Play size={16} />}</span>
+        <span>
+          {loading ? (
+            <LoadingAnimation />
+          ) : isPlaying ? (
+            <Pause size={16} />
+          ) : (
+            <Play size={16} />
+          )}
+        </span>
       </Button>
       <button
         onClick={changeSpeed}

@@ -77,7 +77,7 @@ export default function Page({ params }: ParamsType) {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages]);
+  }, [messages, userAction]);
 
   return (
     <div className="flex flex-col w-full h-screen bg-stone-100">
@@ -95,12 +95,12 @@ export default function Page({ params }: ParamsType) {
               isOwner={message?.isOwner}
             />
           ))}
-
+          <div ref={messagesEndRef} />
           {userAction && userAction?.name && (
             <UserAction name={userAction?.name} type={userAction?.type} />
           )}
-          <div ref={messagesEndRef} />
         </div>
+
         <ChatTools
           chatId={params.chatId}
           name={name}
