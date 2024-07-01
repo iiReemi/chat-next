@@ -1,13 +1,8 @@
+import { AudioPlayerProps } from "@/interfaces";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
-
-// Tipo de propriedades para o componente AudioPlayer
-interface AudioPlayerProps {
-  audioUrl: string;
-  isOwner: boolean;
-}
 
 export default function AudioPlayer({ audioUrl, isOwner }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
