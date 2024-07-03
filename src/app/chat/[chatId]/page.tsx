@@ -75,39 +75,39 @@ export default function Page({ params }: ParamsType) {
 
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      if (messages.length >= 5) {
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      }
     }
   }, [messages, userAction]);
 
   return (
-    <div className="flex flex-col w-full h-screen bg-stone-100">
-      <div className="flex flex-col h-full w-full justify-between">
-        <div className="flex flex-col overflow-auto p-2 gap-1 flex-grow">
-          {messages.map((message, index) => (
-            <Message
-              key={index}
-              date={message.date}
-              id={message.id}
-              message={message.message}
-              room={message.room}
-              sender={message.sender}
-              type={message.type}
-              isOwner={message?.isOwner}
-            />
-          ))}
-          <div ref={messagesEndRef} />
-          {userAction && userAction?.name && (
-            <UserAction name={userAction?.name} type={userAction?.type} />
-          )}
-        </div>
-
-        <ChatTools
-          chatId={params.chatId}
-          name={name}
-          setMessages={setMessages}
-          socketInstance={socketInstance}
-        />
+    <div className="flex flex-col w-full bg-stone-100 absolute inset-0 justify-between">
+      <div className="flex flex-col overflow-auto p-2 gap-1">
+        {messages.map((message, index) => (
+          <Message
+            key={index}
+            date={message.date}
+            id={message.id}
+            message={message.message}
+            room={message.room}
+            sender={message.sender}
+            type={message.type}
+            isOwner={message?.isOwner}
+          />
+        ))}
+        <div ref={messagesEndRef} />
+        {userAction && userAction?.name && (
+          <UserAction name={userAction?.name} type={userAction?.type} />
+        )}
       </div>
+
+      <ChatTools
+        chatId={params.chatId}
+        name={name}
+        setMessages={setMessages}
+        socketInstance={socketInstance}
+      />
       <ImagePreview />
     </div>
   );
