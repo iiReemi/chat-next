@@ -135,7 +135,7 @@ export default function ChatTools({
   }, [chatId, isRecording, name, socketInstance]);
 
   return (
-    <div className="flex items-center gap-2 bg-stone-800 h-14 px-6 w-full py-2 sticky bottom-0">
+    <div className="flex flex-row p-2 gap-2 items-center h-14 bg-stone-800">
       {isRecording ? (
         <StopRecording onClick={() => setCancel(!cancel)} />
       ) : (
